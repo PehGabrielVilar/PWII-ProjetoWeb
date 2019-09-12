@@ -1,5 +1,7 @@
 <?php 
 
+include "UsuarioDAO.php";
+
 $usuario = new UsuarioDAO();
 
 $usuario->nome = $_POST["nome"];
