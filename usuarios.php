@@ -106,28 +106,26 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="UsuarioController.php" method="POST">
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome"
-                                placeholder="Nome Completo">
+                            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome Completo">
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="email" class="form-control" id="email"
-                                placeholder="E -mail">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="E -mail">
                         </div>
                         <div class="form-group">
                             <label for="senha">Senha</label>
-                            <input type="password" class="form-control" id="senha"
-                                placeholder="Senha">
+                            <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
                         </div>
-                    </form>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
