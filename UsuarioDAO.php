@@ -10,11 +10,9 @@ class UsuarioDAO{
         $sql = "INSERT INTO usuário VALUES (0, '$this->nome', '$this->email', '$this->senha')";
         $rs = $con->query($sql);
         if ($rs) 
-            echo "usuário cadastrado com sucesso";
+            header ("Location: usuarios.php");
         else 
             echo $con->error;
     }
 }
-
-
 ?>
