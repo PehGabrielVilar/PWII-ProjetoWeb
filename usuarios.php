@@ -91,10 +91,12 @@ $lista = $usuarioDAO->buscar();
                         <td><?= $usuario -> nome?></td>
                         <td><?= $usuario -> email?></td>
                         <td>
-                            <a class="btn btn-danger" href ="UsuariosController.php?acao=apagar&id=<?= $usuario -> idUsuario?>">
+                            <a class="btn btn-danger" href ="UsuarioController.php?acao=apagar&id=<?=$usuario-> idUsuario?>">
                             <i class="fas fa-times"></i></a>
-                            <button type="button" class="btn btn-warning"><i class="fas fa-user-edit"></i></button>
-                            <button type="button" class="btn btn-info"><i class="fas fa-key"></i></button>
+                            <button type="button" class="btn btn-warning" >
+                            <i class="fas fa-user-edit"></i></button>
+                            <button type="button" class="btn btn-info alterar-senha" data-toggle="modal" data-target="#modalsenha" data-id="<?=$usuario-> idUsuario?>">
+                            <i class="fas fa-key"></i></button>
                         </td>
                     </tr>
                     <?php endforeach ?>
@@ -116,7 +118,7 @@ $lista = $usuarioDAO->buscar();
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="UsuarioController.php" method="POST">
+                    <form action="UsuarioController.php?acao=inserir" method="POST">
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome Completo">
@@ -129,7 +131,34 @@ $lista = $usuarioDAO->buscar();
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
                         </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <!-- TrocaSenha -->
+    <div class="modal fade" id="modalsenha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Senha</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="UsuarioController.php?acao=trocarSenha" method="POST">
+                        <input type="hidden" name="id"  id="campo-id">
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -151,4 +180,17 @@ $lista = $usuarioDAO->buscar();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+
+<script type = "text/javascript">
+var botao = document.querySelector(".alterar-senha");
+botao.addEventListener("click", function(){
+    var campo = document.querySelector("#campo-id");
+    campo.value = botao.getAttribute("data-id");
+});
+
+</script>
+
+
+
+
 <html>
