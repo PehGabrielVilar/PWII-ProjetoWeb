@@ -118,28 +118,30 @@ $lista = $perguntaDAO->buscar();
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="PenguntaController.php?acao=inserir" method="POST">
+                    <form action="PerguntaController.php?acao=inserir" method="POST">
                         <div class="form-group">
                             <label for="enunciado">Enunciado</label>
                             <input type="text" name="enunciado" class="form-control" id="enunciado" placeholder="Digite o enunciado">
                         </div>
                         <div class="form-group">
-                            <label for="tipo">Tipo</label>
-                            <div class="radio">
-                            <label><input type="radio" name="optradio" checked> Multipla escolha</label>
-                            </div>
-                            <div class="radio">
-                            <label><input type="radio" name="optradio"> Associação</label>
-                            </div>
-                            <div class="radio">
-                            <label><input type="radio" name="optradio" > Verdadeiro ou Falso</label>
-                            </div>
-                            <div class="radio">
-                            <label><input type="radio" name="optradio" > Resposta breve</label>
-                            </div>
-                            <div class="radio">
-                            <label><input type="radio" name="optradio" > Complete a frase</label>
-                            </div>
+                                <label for="tipo">Tipo</label>
+                                <div id = "tipo">
+                                <div class="radio">
+                                <label><input type="radio" name="optradio" checked> Multipla escolha</label>
+                                </div>
+                                <div class="radio">
+                                <label><input type="radio" name="optradio"> Associação</label>
+                                </div>
+                                <div class="radio">
+                                <label><input type="radio" name="optradio" > Verdadeiro ou Falso</label>
+                                </div>
+                                <div class="radio">
+                                <label><input type="radio" name="optradio" > Resposta breve</label>
+                                </div>
+                                <div class="radio">
+                                <label><input type="radio" name="optradio" > Complete a frase</label>
+                                </div>
+                                </div>
                         </div>
                 </div>
                 <div class="modal-footer">
