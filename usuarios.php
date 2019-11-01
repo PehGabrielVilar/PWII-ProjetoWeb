@@ -17,7 +17,7 @@ $lista = $usuarioDAO->buscar();
 
 <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Sem Nome</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
             aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@ $lista = $usuarioDAO->buscar();
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
             </form>
         </div>
     </nav>
@@ -74,7 +74,7 @@ $lista = $usuarioDAO->buscar();
             </div>
             <div class="col-10">
                 <h3>Usuários</h3>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalnovo">
                     <i class="fas fa-user-plus"></i>
                     Novo Usúario
                 </button>
@@ -91,12 +91,14 @@ $lista = $usuarioDAO->buscar();
                         <td><?= $usuario -> nome?></td>
                         <td><?= $usuario -> email?></td>
                         <td>
-                            <a class="btn btn-danger" href ="UsuarioController.php?acao=apagar&id=<?=$usuario-> idUsuario?>">
-                            <i class="fas fa-times"></i></a>
-                            <button type="button" class="btn btn-warning" >
-                            <i class="fas fa-user-edit"></i></button>
                             <button type="button" class="btn btn-info alterar-senha" data-toggle="modal" data-target="#modalsenha" data-id="<?=$usuario-> idUsuario?>">
                             <i class="fas fa-key"></i></button>
+                            <button type="button" class="btn btn-warning alterar-email" data-toggle="modal" data-target="#modalemail" data-id="<?=$usuario-> idUsuario?>">
+                            <i class="fas fa-user-edit"></i></button>
+                            <a class="btn btn-danger" href ="UsuarioController.php?acao=apagar&id=<?=$usuario-> idUsuario?>">
+                            <i class="fas fa-times"></i></a>
+                            
+                           
                         </td>
                     </tr>
                     <?php endforeach ?>
@@ -133,8 +135,8 @@ $lista = $usuarioDAO->buscar();
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 </form>
             </div>
@@ -153,7 +155,7 @@ $lista = $usuarioDAO->buscar();
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="UsuarioController.php?acao=trocarSenha" method="POST">
+                    <form action="UsuarioController.php?acao=trocarsenha" method="POST">
                         <input type="hidden" name="id"  id="campo-id">
                         <div class="form-group">
                             <label for="senha">Senha</label>
@@ -161,8 +163,36 @@ $lista = $usuarioDAO->buscar();
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <!-- TrocaEmail -->
+     <div class="modal fade" id="modalemail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="UsuarioController.php?acao=trocaremail" method="POST">
+                        <input type="hidden" name="id"  id="campo-id">
+                        <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="E-mail">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 </form>
             </div>

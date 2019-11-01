@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Out-2019 às 03:09
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 01-Nov-2019 às 02:22
+-- Versão do servidor: 5.7.21-log
+-- versão do PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `alternativas`
+--
+
+CREATE TABLE `alternativas` (
+  `idAlternativa` int(11) NOT NULL,
+  `texto` varchar(200) NOT NULL,
+  `idQuestao` int(11) NOT NULL,
+  `correta` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pergunta`
 --
 
@@ -39,7 +52,7 @@ CREATE TABLE `pergunta` (
 --
 
 INSERT INTO `pergunta` (`idQuestao`, `enunciado`, `tipo`) VALUES
-(1, 'ssss', '');
+(6, 'aaaaa', '');
 
 -- --------------------------------------------------------
 
@@ -59,11 +72,17 @@ CREATE TABLE `usuário` (
 --
 
 INSERT INTO `usuário` (`idUsuario`, `nome`, `email`, `senha`) VALUES
-(0, 'Thiago', '123@gmail.com', '123');
+(0, 'a', 'aaaa@gmail.com', 'cfcd208495d565ef66e7dff9f98764da');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `alternativas`
+--
+ALTER TABLE `alternativas`
+  ADD PRIMARY KEY (`idAlternativa`);
 
 --
 -- Indexes for table `pergunta`
@@ -83,10 +102,16 @@ ALTER TABLE `usuário`
 --
 
 --
+-- AUTO_INCREMENT for table `alternativas`
+--
+ALTER TABLE `alternativas`
+  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pergunta`
 --
 ALTER TABLE `pergunta`
-  MODIFY `idQuestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idQuestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

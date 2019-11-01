@@ -17,7 +17,7 @@ $lista = $perguntaDAO->buscar();
 
 <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Sem Nome</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
             aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@ $lista = $perguntaDAO->buscar();
 
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item active" >
                     <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
                 </li>
                 <li class="nav-item">
@@ -49,7 +49,7 @@ $lista = $perguntaDAO->buscar();
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
             </form>
         </div>
     </nav>
@@ -62,7 +62,7 @@ $lista = $perguntaDAO->buscar();
                         <a class="nav-link " href="usuarios">Usuários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="pergunta">Perguntas</a>
+                        <a class="nav-link active" href="pergunta" >Perguntas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -74,8 +74,8 @@ $lista = $perguntaDAO->buscar();
             </div>
             <div class="col-10">
                 <h3>Questões</h3>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
-                    <i class="fas fa-user-plus"></i>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalnovo">
+                    <i class="fas fa-question"></i>
                     Nova Questão
                 </button>
                 <table class="table">
@@ -91,12 +91,13 @@ $lista = $perguntaDAO->buscar();
                         <td><?= $pergunta -> enunciado?></td>
                         <td><?= $pergunta -> tipo?></td>
                         <td>
+                            <button type="button" class="btn btn-info" >
+                            <i class="fas fa-list"></i></button>   
+                            <button type="button" class="btn btn-warning alterar-senha" data-toggle="modal" data-target="#modalsenha" data-id="<?=$pergunta-> idQuestao?>">
+                            <i class="far fa-edit "></i></button>
                             <a class="btn btn-danger" href ="PerguntaController.php?acao=apagar&id=<?=$pergunta-> idQuestao?>">
                             <i class="fas fa-times"></i></a>
-                            <button type="button" class="btn btn-warning" >
-                            <i class="fas fa-user-edit"></i></button>
-                            <button type="button" class="btn btn-info alterar-senha" data-toggle="modal" data-target="#modalsenha" data-id="<?=$pergunta-> idQuestao?>">
-                            <i class="fas fa-key"></i></button>
+                            
                         </td>
                     </tr>
                     <?php endforeach ?>
@@ -145,8 +146,8 @@ $lista = $perguntaDAO->buscar();
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 </form>
             </div>
@@ -165,7 +166,7 @@ $lista = $perguntaDAO->buscar();
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="PerguntaController.php?acao=trocarSenha" method="POST">
+                    <form action="PerguntaController.php?acao=trocarpergunta" method="POST">
                         <input type="hidden" name="id"  id="campo-id">
                         <div class="form-group">
                             <label for="enunciado">Enunciado</label>
