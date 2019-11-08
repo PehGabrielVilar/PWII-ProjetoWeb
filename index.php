@@ -1,4 +1,5 @@
 <?php
+
 switch ($_SERVER["PATH_INFO"]) {
     case '/usuarios':
     case '/usuario':

@@ -25,7 +25,7 @@ class UsuarioDAO{
     }
 
     public function trocaremail ($id, $email){
-        $sql = "UPDATE usuário SET email = $email";
+        $sql = "UPDATE usuário SET email = '$email'  WHERE idUsuario = $id";
         $rs = $this->con->query($sql);
         if ($rs) header ("Location: usuarios.php");
         else echo $this->con->error; 

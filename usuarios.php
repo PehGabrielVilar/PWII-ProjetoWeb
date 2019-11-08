@@ -74,7 +74,7 @@ $lista = $usuarioDAO->buscar();
             </div>
             <div class="col-10">
                 <h3>Usuários</h3>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalnovo">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalnovo">
                     <i class="fas fa-user-plus"></i>
                     Novo Usúario
                 </button>
@@ -94,7 +94,8 @@ $lista = $usuarioDAO->buscar();
                             <button type="button" class="btn btn-info alterar-senha" data-toggle="modal" data-target="#modalsenha" data-id="<?=$usuario-> idUsuario?>">
                             <i class="fas fa-key"></i></button>
                             <button type="button" class="btn btn-warning alterar-email" data-toggle="modal" data-target="#modalemail" data-id="<?=$usuario-> idUsuario?>">
-                            <i class="fas fa-user-edit"></i></button>
+                            <i class="fas fa-user-edit"></i>
+                            </button>
                             <a class="btn btn-danger" href ="UsuarioController.php?acao=apagar&id=<?=$usuario-> idUsuario?>">
                             <i class="fas fa-times"></i></a>
                             
@@ -184,7 +185,7 @@ $lista = $usuarioDAO->buscar();
                 </div>
                 <div class="modal-body">
                     <form action="UsuarioController.php?acao=trocaremail" method="POST">
-                        <input type="hidden" name="id"  id="campo-id">
+                        <input type="hidden" name="id"  id="campo">
                         <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="E-mail">
@@ -215,6 +216,12 @@ $lista = $usuarioDAO->buscar();
 var botao = document.querySelector(".alterar-senha");
 botao.addEventListener("click", function(){
     var campo = document.querySelector("#campo-id");
+    campo.value = botao.getAttribute("data-id");
+});
+
+var botao = document.querySelector(".alterar-email");
+botao.addEventListener("click", function(){
+    var campo = document.querySelector("#campo");
     campo.value = botao.getAttribute("data-id");
 });
 

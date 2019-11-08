@@ -74,7 +74,7 @@ $lista = $perguntaDAO->buscar();
             </div>
             <div class="col-10">
                 <h3>Questões</h3>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalnovo">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalnovo">
                     <i class="fas fa-question"></i>
                     Nova Questão
                 </button>
