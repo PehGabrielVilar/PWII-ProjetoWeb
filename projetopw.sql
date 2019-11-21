@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Nov-2019 às 02:22
--- Versão do servidor: 5.7.21-log
--- versão do PHP: 7.3.1
+-- Generation Time: 07-Nov-2019 às 19:12
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,49 +30,64 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alternativas` (
   `idAlternativa` int(11) NOT NULL,
-  `texto` varchar(200) NOT NULL,
   `idQuestao` int(11) NOT NULL,
+  `texto` varchar(200) NOT NULL,
   `correta` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `alternativas`
+--
+
+INSERT INTO `alternativas` (`idAlternativa`, `idQuestao`, `texto`, `correta`) VALUES
+(5, 4, '4', 1),
+(6, 4, '22', 0),
+(7, 3, 'Cabral', 1),
+(8, 3, 'Bacal', 0),
+(9, 3, 'Colombo', 0),
+(13, 4, '33', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pergunta`
+-- Estrutura da tabela `questoes`
 --
 
-CREATE TABLE `pergunta` (
+CREATE TABLE `questoes` (
   `idQuestao` int(11) NOT NULL,
-  `enunciado` text NOT NULL,
+  `enunciado` varchar(200) NOT NULL,
   `tipo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `pergunta`
+-- Extraindo dados da tabela `questoes`
 --
 
-INSERT INTO `pergunta` (`idQuestao`, `enunciado`, `tipo`) VALUES
-(6, 'aaaaa', '');
+INSERT INTO `questoes` (`idQuestao`, `enunciado`, `tipo`) VALUES
+(3, 'Quem descobriu o Braza?', 'alternativas'),
+(4, 'Quanto Ã© 2+2 ?', 'numÃ©rica');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuário`
+-- Estrutura da tabela `usuarios`
 --
 
-CREATE TABLE `usuário` (
+CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
   `nome` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `senha` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuário`
+-- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuário` (`idUsuario`, `nome`, `email`, `senha`) VALUES
-(0, 'a', 'aaaa@gmail.com', 'cfcd208495d565ef66e7dff9f98764da');
+INSERT INTO `usuarios` (`idUsuario`, `nome`, `email`, `senha`) VALUES
+(6, 'Carlos Roberto', 'carlosalberto@gmail.com.br', 'etec238'),
+(7, 'Joao Carlos Lima', 'joao@etecia.com.br', '456'),
+(8, 'JoÃ£o Carlos Lima e Silva', 'joao@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Indexes for dumped tables
@@ -82,20 +97,20 @@ INSERT INTO `usuário` (`idUsuario`, `nome`, `email`, `senha`) VALUES
 -- Indexes for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  ADD PRIMARY KEY (`idAlternativa`);
+  ADD PRIMARY KEY (`idAlternativa`),
+  ADD KEY `alternativa_questao` (`idQuestao`);
 
 --
--- Indexes for table `pergunta`
+-- Indexes for table `questoes`
 --
-ALTER TABLE `pergunta`
+ALTER TABLE `questoes`
   ADD PRIMARY KEY (`idQuestao`);
 
 --
--- Indexes for table `usuário`
+-- Indexes for table `usuarios`
 --
-ALTER TABLE `usuário`
-  ADD PRIMARY KEY (`idUsuario`),
-  ADD KEY `idUsuario` (`idUsuario`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUsuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -105,13 +120,29 @@ ALTER TABLE `usuário`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pergunta`
+-- AUTO_INCREMENT for table `questoes`
 --
-ALTER TABLE `pergunta`
-  MODIFY `idQuestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `questoes`
+  MODIFY `idQuestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `alternativas`
+--
+ALTER TABLE `alternativas`
+  ADD CONSTRAINT `alternativa_questao` FOREIGN KEY (`idQuestao`) REFERENCES `questoes` (`idQuestao`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
