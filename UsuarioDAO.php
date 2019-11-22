@@ -9,7 +9,7 @@ class UsuarioDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect("localhost", "root", "", "projetopw");
+		$this->con = mysqli_connect("localhost", "root", "etecia", "projetopw");
 	}
 
 	public function apagar($id){
