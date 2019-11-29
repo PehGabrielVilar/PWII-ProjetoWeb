@@ -8,7 +8,7 @@ class QuestoesDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect("localhost", "root", "etecia", "projetopw");
+		$this->con = mysqli_connect("localhost", "root", "", "projetopw");
 	}
 
 	public function apagar($id){

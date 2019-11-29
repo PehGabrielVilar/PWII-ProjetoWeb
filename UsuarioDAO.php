@@ -1,4 +1,5 @@
 <?php 
+include "config.php";
 
 class UsuarioDAO{
 	public $id;
@@ -9,22 +10,34 @@ class UsuarioDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect("localhost", "root", "etecia", "projetopw");
+		$this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 	}
 
 	public function apagar($id){
 		$sql = "DELETE FROM usuarios WHERE idUsuario=$id";
 		$rs = $this->con->query($sql);
-		if ($rs) header("Location: usuarios.php");
-		else echo $this->con->error;
+		if ($rs) {
+			session_start();
+			$_SESSION["success"] = "Usuário excluído com sucesso";
+			header("Location: /usuarios");
+		}
+		else {
+			session_start();
+			$_SESSION["danger"] = "Erro ao apagar usuário.";
+			header("Location: /usuarios");
+		}
+
 	}
 
 	public function inserir(){
 		$sql = "INSERT INTO usuarios VALUES (0, '$this->nome', '$this->email', md5('$this->senha') )";
 		$rs = $this->con->query($sql);
 
-		if ($rs) 
-			header("Location: usuarios.php");
+		if ($rs){
+			session_start();
+			$_SESSION["success"] = "Usuário cadastrado com sucesso";
+			header("Location: /usuarios");
+		} 
 		else 
 			echo $this->con->error;
 	}
@@ -33,7 +46,7 @@ class UsuarioDAO{
 		$sql = "UPDATE usuarios SET nome='$this->nome', email='$this->email' WHERE idUsuario=$this->id";
 		$rs = $this->con->query($sql);
 		if ($rs) 
-			header("Location: usuarios.php");
+			header("Location: /usuarios");
 		else 
 			echo $this->con->error;
 	}
@@ -41,7 +54,7 @@ class UsuarioDAO{
 	public function trocarSenha($id, $senha){
 		$sql = "UPDATE usuarios SET senha=md5('$senha') WHERE idUsuario=$id";
 		$rs = $this->con->query($sql);
-		if ($rs) header("Location: usuarios.php");
+		if ($rs) header("Location: /usuarios");
 		else echo $this->con->error;
 	}
 
@@ -53,6 +66,25 @@ class UsuarioDAO{
 			$listaDeUsuarios[] = $linha;
 		}
 		return $listaDeUsuarios;
+	}
+
+	public function logar(){
+		$sql = "SELECT * FROM usuarios WHERE email='$this->email' AND senha=md5('$this->senha')";
+		$rs = $this->con->query($sql);
+		//echo $sql;
+		if ($rs->num_rows > 0) {
+			session_start();
+			$_SESSION["logado"]=true;
+			header("Location: /usuarios");
+		}else{
+			header("Location: /?erro=1");
+		}
+	}
+
+	public function logout(){
+		session_start();
+		session_destroy();
+		header("Location: /");
 	}
 }
 
