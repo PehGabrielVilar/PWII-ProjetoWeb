@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Nov-2019 às 19:12
--- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 7.2.12
+-- Generation Time: 06-Dez-2019 às 02:18
+-- Versão do servidor: 5.7.21-log
+-- versão do PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,12 +40,10 @@ CREATE TABLE `alternativas` (
 --
 
 INSERT INTO `alternativas` (`idAlternativa`, `idQuestao`, `texto`, `correta`) VALUES
-(5, 4, '4', 1),
-(6, 4, '22', 0),
-(7, 3, 'Cabral', 1),
-(8, 3, 'Bacal', 0),
-(9, 3, 'Colombo', 0),
-(13, 4, '33', 0);
+(14, 6, 'Palmeiras', 1),
+(15, 6, 'Barcelona', 0),
+(16, 6, 'Milan', 0),
+(17, 6, 'Internacional', 0);
 
 -- --------------------------------------------------------
 
@@ -64,8 +62,7 @@ CREATE TABLE `questoes` (
 --
 
 INSERT INTO `questoes` (`idQuestao`, `enunciado`, `tipo`) VALUES
-(3, 'Quem descobriu o Braza?', 'alternativas'),
-(4, 'Quanto Ã© 2+2 ?', 'numÃ©rica');
+(6, 'Qual time não tem mundial?', 'Alternativa');
 
 -- --------------------------------------------------------
 
@@ -85,7 +82,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nome`, `email`, `senha`) VALUES
-(0, 'Pedro', 'pedro@gmail.com.br', '123'),
+(0, 'Pedro', 'pedro@gmail.com.br', '202cb962ac59075b964b07152d234b70'),
 (1, 'AAAAA', 'aaaa@etecia.com.br', '456');
 
 --
@@ -119,13 +116,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `questoes`
 --
 ALTER TABLE `questoes`
-  MODIFY `idQuestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idQuestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
