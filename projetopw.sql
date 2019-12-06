@@ -85,9 +85,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nome`, `email`, `senha`) VALUES
-(6, 'Carlos Roberto', 'carlosalberto@gmail.com.br', 'etec238'),
-(7, 'Joao Carlos Lima', 'joao@etecia.com.br', '456'),
-(8, 'JoÃ£o Carlos Lima e Silva', 'joao@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+(0, 'Pedro', 'pedro@gmail.com.br', '123'),
+(1, 'AAAAA', 'aaaa@etecia.com.br', '456');
 
 --
 -- Indexes for dumped tables

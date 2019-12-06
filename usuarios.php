@@ -62,7 +62,7 @@ include "menu.php";
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="UsuariosController.php?acao=inserir	" method="POST">
+					<form action="UsuariosController.php?acao=inserir" method="POST">
 						<div class="form-group">
 							<label for="nome">Nome</label>
 							<input type="text" name="nome" class="form-control" id="nome" placeholder="nome completo">

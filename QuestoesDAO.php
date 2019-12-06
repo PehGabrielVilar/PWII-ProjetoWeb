@@ -1,5 +1,5 @@
 <?php 
-
+include "config.php";
 class QuestoesDAO{
 	public $id;
 	public $enunciado;
@@ -8,7 +8,7 @@ class QuestoesDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect("localhost", "root", "", "projetopw");
+		$this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 	}
 
 	public function apagar($id){

@@ -70,19 +70,19 @@ class UsuarioDAO{
 
 	public function logar(){
 		$sql = "SELECT * FROM usuarios WHERE email='$this->email' AND senha=md5('$this->senha')";
+		echo $sql;
 		$rs = $this->con->query($sql);
-		//echo $sql;
+		
 		if ($rs->num_rows > 0) {
 			session_start();
 			$_SESSION["logado"]=true;
 			header("Location: /usuarios");
 		}else{
-			header("Location: /?erro=1");
+		//	header("Location: /?erro=1");
 		}
 	}
 
 	public function logout(){
-		session_start();
 		session_destroy();
 		header("Location: /");
 	}
