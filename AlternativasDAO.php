@@ -1,5 +1,5 @@
 <?php 
-include "config.php";
+
 class AlternativasDAO{
 	public $id;
 	public $texto;

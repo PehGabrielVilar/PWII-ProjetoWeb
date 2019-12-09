@@ -2,6 +2,9 @@
 include "verificarLogin.php";
 include "AlternativasDAO.php";
 include "QuestoesDAO.php";
+include "alertas.php";
+include "cabecalho.php";
+include "menu.php";
 
 $idQuestao = $_GET["questao"];
 
@@ -13,8 +16,7 @@ $questoes = new QuestoesDAO();
 $questoes->id = $idQuestao;
 $questoes->buscarPorId();
 
-include "cabecalho.php";
-include "menu.php";
+
 ?>
 <div class="container">
 	
