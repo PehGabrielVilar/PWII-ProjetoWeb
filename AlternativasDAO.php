@@ -9,7 +9,7 @@ class AlternativasDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+		$this->con = mysqli_connect('localhost', 'root', 'etecia', 'projetopw');
 	}
 
 	public function apagar($id, $idQuestao){
@@ -23,10 +23,13 @@ class AlternativasDAO{
 		$sql = "INSERT INTO alternativas VALUES (0, $this->idQuestao, '$this->texto', '$this->correta')";
 		$rs = $this->con->query($sql);
 
-		if ($rs) 
-			header("Location: \alternativas?questao=$this->idQuestao");
-		else 
-			echo $this->con->error;
+		session_start();
+        if ($rs) {
+            $_SESSION["success"] = "Deu bom pra inserir essa alternativa cara";
+        } else {
+            $_SESSION["danger"] = "É...então, não deu pra inserir nada não ";
+        }
+        header("Location: \questoes");
 	}
 
 	public function editar(){

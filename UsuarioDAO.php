@@ -78,11 +78,12 @@ class UsuarioDAO{
 			$_SESSION["logado"]=true;
 			header("Location: /usuarios");
 		}else{
-		//	header("Location: /?erro=1");
+			header("Location: /?erro=1");
 		}
 	}
 
 	public function logout(){
+		session_start();
 		session_destroy();
 		header("Location: /");
 	}

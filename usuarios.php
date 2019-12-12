@@ -2,12 +2,13 @@
 include "verificarLogin.php";
 include "UsuarioDAO.php";
 include "alertas.php";
+include "cabecalho.php";
+include "menu.php";
 
 $usuarioDAO = new UsuarioDAO();
 $lista = $usuarioDAO->buscar();
 
-include "cabecalho.php";
-include "menu.php";
+
 ?>
 			<div class="col-10">
 				<?php 

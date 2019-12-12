@@ -1,14 +1,20 @@
 <?php
 include "verificarLogin.php";
 include "QuestoesDAO.php";
+include "cabecalho.php";
+include "menu.php";
+include "alertas.php" ;
 
 $questoesDAO = new QuestoesDAO();
 $lista = $questoesDAO->buscar();
 
-include "cabecalho.php";
-include "menu.php";
+
 ?>
-			<div class="col-10">	
+			<div class="col-10">
+			<?php 
+					mostrarAlerta("success");
+					mostrarAlerta("danger");
+				?>	
 				<h3>Questões</h3>
 				<button class="btn btn-secondary" data-toggle="modal" data-target="#modalnovo">
 					<i class="fas fa-question"></i>

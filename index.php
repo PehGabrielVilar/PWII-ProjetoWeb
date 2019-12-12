@@ -1,25 +1,25 @@
 <?php 
 
-if (!isset($_SERVER["PATH_INFO"])) {
-	require("login.php");
+if (!isset($_SERVER['PATH_INFO'])) {
+	require('login.php');
 	exit();
 }
 
-switch ($_SERVER["PATH_INFO"]) {
+switch ($_SERVER['PATH_INFO']) {
  	case '/usuarios':
- 		require("usuarios.php");
+ 		require('usuarios.php');
  		break;
  	
  	case '/questoes':
- 		require("questoes.php");
+ 		require('questoes.php');
  		break;
 
  	case '/alternativas':
- 		require("alternativas.php");
+ 		require('alternativas.php');
  		break;
 
  	default:
- 		echo "Erro 404 - página não encontrada";
+ 		echo 'Erro 404 - página não encontrada';
  		break;
 } 
 ?>
