@@ -33,7 +33,7 @@ $questoes->buscarPorId();
 			</li>
 		<?php endforeach ?>
 	</ul>
-	<button class="btn btn-primary" data-toggle="modal" data-target="#modalnovo"><i class="fas fa-plus"></i></button>
+	<button class="btn btn-success" data-toggle="modal" data-target="#modalnovo"><i class="fas fa-plus"></i></button>
 </div>
 <!-- Modal Novo -->
 <div class="modal fade" id="modalnovo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -62,8 +62,8 @@ $questoes->buscarPorId();
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-success">Salvar</button>
 				</div>
 			</form>
 		</div>

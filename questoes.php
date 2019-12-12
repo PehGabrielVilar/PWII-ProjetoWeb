@@ -10,7 +10,7 @@ include "menu.php";
 ?>
 			<div class="col-10">	
 				<h3>Questões</h3>
-				<button class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
+				<button class="btn btn-secondary" data-toggle="modal" data-target="#modalnovo">
 					<i class="fas fa-question"></i>
 					Nova Questão
 				</button>
@@ -67,8 +67,8 @@ include "menu.php";
 						</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-success">Salvar</button>
 				</div>
 				</form>
 			</div>
@@ -98,8 +98,8 @@ include "menu.php";
 						</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-success">Salvar</button>
 				</div>
 				</form>
 			</div>
